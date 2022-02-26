@@ -1,5 +1,4 @@
 import React from 'react';
-// import './style.css';
 import styled, { keyframes } from 'styled-components';
 
 const spin = keyframes`
@@ -13,12 +12,12 @@ const spin = keyframes`
 const Loader = styled.div`
   margin: auto;
   margin-top: 1rem;
-  border: 16px solid #f3f3f3;
+  border: 7px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 120px;
-  height: 120px;
-  animation: ${spin} 2s linear infinite;
+  border-top: 7px solid #3498db;
+  width: 60px;
+  height: 60px;
+  animation: ${spin} 1s linear infinite;
 `
 const Notification = styled.p`
   margin-top: 1rem;
@@ -26,11 +25,11 @@ const Notification = styled.p`
 `
 export default function Loading() {
   return (
-    <>
+    <div>
       <Loader />
       <Notification>
         Loading...
       </Notification>
-    </>
+    </div>
   )
 }
