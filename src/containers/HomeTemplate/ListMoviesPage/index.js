@@ -4,9 +4,10 @@ import Loading from '../../../components/Loader';
 import Movie from './Movie';
 
 export default function ListMoviesPage() {
-  const [data, recieveData] = useState({
+  const [data, setData] = useState({
     listMovie: null,
-    loading: false
+    loading: false,
+    error: null
   });
 
   const handleRenderData = () => {
@@ -17,9 +18,13 @@ export default function ListMoviesPage() {
     }
   };
 
-
   useEffect(() => {
-    recieveData({ listMovie: null, loading: true });
+    setData({ listMovie: null, loading: true, error: null });
+    // Set waiting time
+    const waitingTime = setTimeout(() => {
+      setData({ listMovie: null, loading: false, error: null });
+      return alert("Time out!");
+    }, 10000);
     axios({
       url: "https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP02",
       method: "GET",
@@ -28,11 +33,13 @@ export default function ListMoviesPage() {
       }
     })
       .then(result => {
-        recieveData({ listMovie: result.data.content, loading: false });
+        clearTimeout(waitingTime);
+        setData({ listMovie: result.data.content, loading: false, error: null });
       })
       .catch(error => {
-        recieveData({ listMovie: null, loading: false });
-        alert(error);
+        setData({ listMovie: null, loading: false, error: error.response.data.message });
+        alert(error.response.data.message);
+        clearTimeout(waitingTime);
       })
   }, []);
 

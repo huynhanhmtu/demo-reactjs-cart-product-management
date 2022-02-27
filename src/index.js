@@ -7,15 +7,18 @@ import 'jquery/dist/jquery.min.js';
 import 'popper.js/dist/popper.min.js';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux';//Create store bằng redux
+import { rootReducer } from './reduces';//Import rootReducer
+import { Provider } from 'react-redux';//Connect react và redux
+
+// Khi không sử dụng API => tạo store với tham số là rootReducer; tham số thứ 2 có thể có hoặc ko, dùng cho extension redux dev tool trên trình duyệt để xem cho dễ dàng
+const store = createStore(rootReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
