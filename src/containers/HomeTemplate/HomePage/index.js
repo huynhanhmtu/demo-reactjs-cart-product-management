@@ -2,6 +2,10 @@ import React from 'react'
 
 export default function HomePage() {
   return (
-    <div>Home Page</div>
+    <div>
+      <div>Home Page</div>
+      <div>- Carousel</div>
+      <div>- Some Contents</div>
+    </div>
   )
 }

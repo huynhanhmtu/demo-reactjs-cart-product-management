@@ -2,6 +2,9 @@ import React from 'react'
 
 export default function AboutPage() {
   return (
-    <div>About Page</div>
+    <div>
+      <div>About Page</div>
+      <div>- Some Contents</div>
+    </div>
   )
 }
