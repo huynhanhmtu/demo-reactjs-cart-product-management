@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Loading from '../../../components/Loader';
+import { actLogin } from './modules/actions';
+import { LOGIN_RESET } from './modules/constants';
 
 export default function LoginPage(props) {
   const [infoField, setInfoField] = useState({
@@ -7,10 +10,22 @@ export default function LoginPage(props) {
     matKhau: ""
   });
 
+  const loading = useSelector(state => state.userLoginReducer.loading);
+  const error = useSelector(state => state.userLoginReducer.error);
+
+  useEffect(() => {
+    return () => {
+      dispatch({
+        type: LOGIN_RESET
+      })
+    }
+  }, [])
+
   const dispatch = useDispatch();
 
   const handleLogin = (event) => {
     event.preventDefault();
+    dispatch(actLogin(infoField, props.history));
   };
 
   const handleOnChange = (event) => {
@@ -18,7 +33,10 @@ export default function LoginPage(props) {
   };
 
   const notifications = () => {
-    // return error && <div className='alert alert-danger mt-3'>{error.response.data.content}</div>
+    if (loading) {
+      return <Loading />
+    }
+    return error && <div className='alert alert-danger mt-3'>{error.response.data.content}</div>
   }
 
   return (
@@ -33,12 +51,17 @@ export default function LoginPage(props) {
             </div>
             <div className="form-group">
               <label>Password</label>
-              <input type="text" className="form-control" name="matKhau" onChange={handleOnChange} />
+              <input type="password" className="form-control" name="matKhau" autoComplete="on" onChange={handleOnChange} />
             </div>
             <div className='text-center'>
               <button type="submit" className="btn btn-success">Login</button>
             </div>
           </form>
+          <div className='text-monospace'>
+            <p>Example:</p>
+            <p>Admin account: qwerty - 123</p>
+            <p>User account: test003 - 1</p>
+          </div>
           {notifications()}
         </div>
       </div>
