@@ -7,12 +7,13 @@ import 'jquery/dist/jquery.min.js';
 import 'popper.js/dist/popper.min.js';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';//Create store bằng redux
-import { rootReducer } from './reduces';//Import rootReducer
-import { Provider } from 'react-redux';//Connect react và redux
+import { applyMiddleware, compose, createStore } from 'redux';//applyMiddleware và compose để xử lý bất đồng bộ trước khi dispatch lên store của reducer
+import { rootReducer } from './reduces';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';//Đồng bộ hóa dữ liệu trước khi đưa lên store
 
-// Khi không sử dụng API => tạo store với tham số là rootReducer; tham số thứ 2 có thể có hoặc ko, dùng cho extension redux dev tool trên trình duyệt để xem cho dễ dàng
-const store = createStore(rootReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>

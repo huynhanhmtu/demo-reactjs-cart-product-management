@@ -1,5 +1,6 @@
-import { combineReducers } from "redux";//Combine các reducer con
+import { combineReducers } from "redux";
+import listMoviesReducer from "../containers/HomeTemplate/ListMoviesPage/modules/reducer";
 
 export const rootReducer = combineReducers({
-  // Nơi chứa các reducer của components ...
+  listMoviesReducer,
 });
