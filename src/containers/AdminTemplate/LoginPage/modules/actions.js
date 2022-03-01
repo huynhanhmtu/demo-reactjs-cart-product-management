@@ -24,8 +24,8 @@ export const actLogin = (userInfo, history) => {
         }
         localStorage.setItem("UserInfo", JSON.stringify(result.data.content));
         // Redirect
-        history.replace("/dashboard");
         dispatch(actLoginSuccess(result.data.content));
+        history.replace("/dashboard");
       })
       .catch(error => {
         dispatch(actLoginFailed(error));
@@ -50,3 +50,9 @@ const actLoginFailed = (error) => {
     payload: error
   }
 };
+
+export const actLoginReset = () => {
+  return {
+    type: ActionType.LOGIN_RESET
+  }
+}

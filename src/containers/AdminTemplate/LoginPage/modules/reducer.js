@@ -3,7 +3,7 @@ import * as ActionType from "./constants";
 const initialState = {
   user: null,
   loading: false,
-  error: null
+  error: null,
 }
 
 const userLoginReducer = (state = initialState, action) => {

@@ -1,14 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import AdminDashboard from './_components/Dashboard';
+import AdminSidebar from './_components/Sidebar';
 
 export default function AdminTemplate({ exact, path, component }) {
-  if (localStorage.getItem("UserInfo")) {
+  const [flag, setFlag] = useState(true);
+
+  const transData = (data) => {
+    setFlag(data);
+  }
+
+  if (localStorage.getItem("UserInfo") && flag) {
     return (
       <Fragment>
         <div className='row p-3'>
           <div className='col-md-2'>
-            <AdminDashboard />
+            <AdminSidebar transData={transData} />
           </div>
           <div className='col-md-10'>
             <Route exact={exact} path={path} component={component} />

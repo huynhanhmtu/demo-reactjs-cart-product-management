@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Loading from '../../../components/Loader';
-import { actLogin } from './modules/actions';
-import { LOGIN_RESET } from './modules/constants';
+import { actLogin, actLoginReset } from './modules/actions';
 
 export default function LoginPage(props) {
   const [infoField, setInfoField] = useState({
@@ -13,15 +12,13 @@ export default function LoginPage(props) {
   const loading = useSelector(state => state.userLoginReducer.loading);
   const error = useSelector(state => state.userLoginReducer.error);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     return () => {
-      dispatch({
-        type: LOGIN_RESET
-      })
+      dispatch(actLoginReset())
     }
   }, [])
-
-  const dispatch = useDispatch();
 
   const handleLogin = (event) => {
     event.preventDefault();
