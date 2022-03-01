@@ -5,6 +5,7 @@ import ListMoviesPage from "../containers/HomeTemplate/ListMoviesPage";
 import DetailMoviePage from "../containers/HomeTemplate/DetailMoviePage";
 import AdminTemplate from "../containers/AdminTemplate";
 import DashboardPage from "../containers/AdminTemplate/DashboardPage"
+import AddUserPage from "../containers/AdminTemplate/AddUserPage";
 
 const routesHome = [
   {
@@ -34,6 +35,11 @@ const routesAdmin = [
     exact: false,
     path: "/dashboard",
     component: DashboardPage
+  },
+  {
+    exact: false,
+    path: "/add-user",
+    component: AddUserPage
   },
 ]
 

@@ -52,14 +52,14 @@ export default function LoginPage(props) {
               <input type="password" className="form-control" name="matKhau" autoComplete="on" onChange={handleOnChange} />
             </div>
             <div className='text-center'>
-              <button type="submit" className="btn btn-success">Login</button>
+              <button type="submit" className="btn btn-primary">Login</button>
               <Link to="/" className='d-block mt-3'>Back to Homepage</Link>
             </div>
           </form>
-          <div className='text-monospace'>
+          <div className='font-italic'>
             <p>Example:</p>
-            <p>Admin account: qwerty - 123</p>
-            <p>User account: test003 - 1</p>
+            <p>Admin: demo000 - 123123</p>
+            <p>User: demo001 - 123123</p>
           </div>
           {notifications()}
         </div>

@@ -9,6 +9,7 @@ const spin = keyframes`
     transform: rotate(360deg);
   }
 `
+
 const Loader = styled.div`
   margin: auto;
   margin-top: 1rem;
@@ -19,10 +20,12 @@ const Loader = styled.div`
   height: 60px;
   animation: ${spin} 1s linear infinite;
 `
+
 const Notification = styled.p`
   margin-top: 1rem;
   text-align: center;
 `
+
 export default function Loading() {
   return (
     <div>

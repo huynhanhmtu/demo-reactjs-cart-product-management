@@ -16,13 +16,13 @@ export default function AdminSidebar(props) {
         <NavLink activeClassName='active' className="nav-link" to="/dashboard">Dashboard</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink exact activeClassName="active" className="nav-link" to="/">Home</NavLink>
+        <NavLink exact activeClassName="active" className="nav-link" to="/">Home Page</NavLink>
       </li>
       <li className="nav-item">
         <NavLink activeClassName='active' className="nav-link" to="/add-user">Add User</NavLink>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" style={{ cursor: "pointer" }} onClick={handleLogout}>Logout</Link>
+        <a className="nav-link" style={{ cursor: "pointer" }} onClick={handleLogout}>Logout</a>
       </li>
     </ul>
   )
