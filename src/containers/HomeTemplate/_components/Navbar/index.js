@@ -1,8 +1,20 @@
 import './style.css';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 export default function NavbarHome() {
+  const handleRenderLink = () => {
+    if (localStorage.getItem("UserInfo")) {
+      return <Link className="nav-link px-1" to="/dashboard">Dashboard</Link>
+    }
+    return (
+      <Fragment>
+        <Link className="nav-link px-1" to="/login">Login</Link>
+        <Link className="nav-link px-1 disabled" to="/">Register</Link>
+      </Fragment>
+    )
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
       <div className='d-flex'>
@@ -25,8 +37,7 @@ export default function NavbarHome() {
         </div>
       </div>
       <div className='d-flex'>
-        <Link className="nav-link px-1" to="/login">Login</Link>
-        <Link className="nav-link px-1 disabled" to="/">Register</Link>
+        {handleRenderLink()}
       </div>
     </nav>
   )

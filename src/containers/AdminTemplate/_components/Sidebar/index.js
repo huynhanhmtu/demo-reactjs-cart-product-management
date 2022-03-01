@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function AdminSidebar(props) {
 
@@ -12,16 +13,16 @@ export default function AdminSidebar(props) {
   return (
     <ul className="nav flex-column">
       <li className="nav-item">
-        <a className="nav-link active" href="#">Active</a>
+        <NavLink activeClassName='active' className="nav-link" to="/dashboard">Dashboard</NavLink>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Link</a>
+        <NavLink exact activeClassName="active" className="nav-link" to="/">Home</NavLink>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Link</a>
+        <NavLink activeClassName='active' className="nav-link" to="/add-user">Add User</NavLink>
       </li>
       <li className="nav-item">
-        <a className="nav-link" style={{ cursor: "pointer" }} onClick={handleLogout}>Logout</a>
+        <Link className="nav-link" style={{ cursor: "pointer" }} onClick={handleLogout}>Logout</Link>
       </li>
     </ul>
   )

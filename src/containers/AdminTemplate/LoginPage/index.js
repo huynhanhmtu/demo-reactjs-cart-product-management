@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Loading from '../../../components/Loader';
 import { actLogin, actLoginReset } from './modules/actions';
 
@@ -52,6 +53,7 @@ export default function LoginPage(props) {
             </div>
             <div className='text-center'>
               <button type="submit" className="btn btn-success">Login</button>
+              <Link to="/" className='d-block mt-3'>Back to Homepage</Link>
             </div>
           </form>
           <div className='text-monospace'>
