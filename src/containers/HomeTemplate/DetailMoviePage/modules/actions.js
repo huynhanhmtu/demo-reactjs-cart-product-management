@@ -1,16 +1,10 @@
-import axios from 'axios';
 import * as ActionType from './constants';
+import api from 'utils/apiUtils';
 
 
 export const actFetchDetailMovie = (id) => (dispatch) => {
   dispatch(actDetailMovieRequest());
-  axios({
-    url: `https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`,
-    method: "GET",
-    headers: {
-      TokenCybersoft: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAyMCIsIkhldEhhblN0cmluZyI6IjE3LzA3LzIwMjIiLCJIZXRIYW5UaW1lIjoiMTY1ODAxNjAwMDAwMCIsIm5iZiI6MTYyNjcxNDAwMCwiZXhwIjoxNjU4MTYzNjAwfQ.CyAnnc8e2Rp7YmuJCdtEj-Wp7RvlDenB9Dad6NV0R20",
-    }
-  })
+  api.get(`QuanLyPhim/LayThongTinPhim?MaPhim=${id}`)
     .then(result => {
       dispatch(actDetailMovieSuccess(result.data.content));
     })
