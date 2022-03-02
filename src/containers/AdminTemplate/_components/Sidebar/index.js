@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 export default function AdminSidebar(props) {
-
   const handleLogout = () => {
     if (window.confirm("Really?")) {
       localStorage.removeItem("UserInfo");

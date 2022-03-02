@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Loading from '../../../components/Loader';
+import Loading from 'components/Loader';
 import Movie from './Movie';
 import { actFetchListMovies } from './modules/actions';
 

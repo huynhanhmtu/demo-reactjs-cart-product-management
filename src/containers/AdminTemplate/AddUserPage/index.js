@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Loading from '../../../components/Loader';
+import Loading from 'components/Loader';
 import { actAddUser, actAddUserReset } from './modules/actions';
 
 export default function AddUserPage() {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Loading from '../../../components/Loader';
+import Loading from 'components/Loader';
 import { actLogin, actLoginReset } from './modules/actions';
 
 export default function LoginPage(props) {

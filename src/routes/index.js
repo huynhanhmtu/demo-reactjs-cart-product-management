@@ -1,11 +1,11 @@
-import AboutPage from "../containers/HomeTemplate/AboutPage";
-import HomePage from "../containers/HomeTemplate/HomePage";
-import HomeTemplate from "../containers/HomeTemplate";
-import ListMoviesPage from "../containers/HomeTemplate/ListMoviesPage";
-import DetailMoviePage from "../containers/HomeTemplate/DetailMoviePage";
-import AdminTemplate from "../containers/AdminTemplate";
-import DashboardPage from "../containers/AdminTemplate/DashboardPage"
-import AddUserPage from "../containers/AdminTemplate/AddUserPage";
+import AboutPage from "containers/HomeTemplate/AboutPage";
+import HomePage from "containers/HomeTemplate/HomePage";
+import HomeTemplate from "containers/HomeTemplate";
+import ListMoviesPage from "containers/HomeTemplate/ListMoviesPage";
+import DetailMoviePage from "containers/HomeTemplate/DetailMoviePage";
+import AdminTemplate from "containers/AdminTemplate";
+import DashboardPage from "containers/AdminTemplate/DashboardPage"
+import AddUserPage from "containers/AdminTemplate/AddUserPage";
 
 const routesHome = [
   {

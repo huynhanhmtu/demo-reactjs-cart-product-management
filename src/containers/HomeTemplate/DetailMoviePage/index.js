@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Loading from '../../../components/Loader';
+import Loading from 'components/Loader';
 import { actFetchDetailMovie } from './modules/actions';
 
 export default function DetailMoviePage(props) {
