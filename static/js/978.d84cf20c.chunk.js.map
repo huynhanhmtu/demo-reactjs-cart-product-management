@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/978.d84cf20c.chunk.js","mappings":"+LAEe,SAASA,IACtB,OACE","sources":["containers/AdminTemplate/DashboardPage/index.js"],"sourcesContent":["import React from 'react';\r\n\r\nexport default function DashboardPage() {\r\n  return (\r\n    <div>Dashboard Page</div>\r\n  )\r\n}"],"names":["DashboardPage"],"sourceRoot":""}

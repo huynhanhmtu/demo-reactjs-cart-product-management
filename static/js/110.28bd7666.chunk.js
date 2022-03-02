@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdemo_reactjs_movie=self.webpackChunkdemo_reactjs_movie||[]).push([[110],{8110:function(e,n,i){i.r(n),i.d(n,{default:function(){return s}});i(2791);var r=i(184);function s(){return(0,r.jsxs)("div",{children:[(0,r.jsx)("div",{children:"Home Page"}),(0,r.jsx)("div",{children:"- Carousel"}),(0,r.jsx)("div",{children:"- Some Contents"})]})}}}]);
+//# sourceMappingURL=110.28bd7666.chunk.js.map
