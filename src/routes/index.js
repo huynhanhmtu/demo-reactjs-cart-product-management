@@ -1,32 +1,28 @@
-import AboutPage from "containers/HomeTemplate/AboutPage";
-import HomePage from "containers/HomeTemplate/HomePage";
 import HomeTemplate from "containers/HomeTemplate";
-import ListMoviesPage from "containers/HomeTemplate/ListMoviesPage";
-import DetailMoviePage from "containers/HomeTemplate/DetailMoviePage";
 import AdminTemplate from "containers/AdminTemplate";
-import DashboardPage from "containers/AdminTemplate/DashboardPage"
-import AddUserPage from "containers/AdminTemplate/AddUserPage";
+
+import { lazy } from "react";
 
 const routesHome = [
   {
     exact: true,
     path: "/",
-    component: HomePage
+    component: lazy(() => import("containers/HomeTemplate/HomePage"))
   },
   {
     exact: false,
     path: "/about",
-    component: AboutPage
+    component: lazy(() => import("containers/HomeTemplate/AboutPage"))
   },
   {
     exact: false,
     path: "/list-movies",
-    component: ListMoviesPage
+    component: lazy(() => import("containers/HomeTemplate/ListMoviesPage"))
   },
   {
     exact: false,
     path: "/detail/:id",
-    component: DetailMoviePage
+    component: lazy(() => import("containers/HomeTemplate/DetailMoviePage"))
   },
 ];
 
@@ -34,12 +30,12 @@ const routesAdmin = [
   {
     exact: false,
     path: "/dashboard",
-    component: DashboardPage
+    component: lazy(() => import("containers/AdminTemplate/DashboardPage"))
   },
   {
     exact: false,
     path: "/add-user",
-    component: AddUserPage
+    component: lazy(() => import("containers/AdminTemplate/AddUserPage"))
   },
 ]
 
