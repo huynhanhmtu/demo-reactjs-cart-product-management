@@ -3,7 +3,6 @@ import axios from 'axios';
 
 export const actAddUser = (user) => {
   const token = localStorage.getItem("UserInfo") ? JSON.parse(localStorage.getItem("UserInfo")).accessToken : "";
-  console.log(token);
 
   return (dispatch) => {
     dispatch(actAddUserRequest());
@@ -19,7 +18,6 @@ export const actAddUser = (user) => {
     })
       .then(result => {
         dispatch(actAddUserSuccess(result.data));
-        alert("Add success!")
       })
       .catch(error => {
         dispatch(actAddUserFailed(error))
@@ -40,3 +38,5 @@ const actAddUserFailed = error => ({
   type: ActionTypes.ADD_USER_FAILED,
   payload: error
 })
+
+export const actAddUserReset = () => ({ type: ActionTypes.ADD_USER_RESET })

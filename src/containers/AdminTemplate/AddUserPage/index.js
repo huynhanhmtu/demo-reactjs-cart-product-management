@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { actAddUser } from './modules/actions';
+import Loading from '../../../components/Loader';
+import { actAddUser, actAddUserReset } from './modules/actions';
 
 export default function AddUserPage() {
   const [info, setInfo] = useState({
@@ -8,7 +9,7 @@ export default function AddUserPage() {
     matKhau: "",
     email: "",
     soDt: "",
-    maNhom: "GP02",
+    maNhom: "GP01",
     maLoaiNguoiDung: "QuanTri",
     hoTen: "",
   });
@@ -21,18 +22,34 @@ export default function AddUserPage() {
     })
   }
 
-  const dispatch = useDispatch();
-  const loading = useSelector(state => state.addUserReducer.loading);
-  const error = useSelector(state => state.addUserReducer.error);
-
   const handleAddUser = (event) => {
     event.preventDefault();
     dispatch(actAddUser(info));
   }
 
+  const dispatch = useDispatch();
+  const success = useSelector(state => state.addUserReducer.data?.message);
+  const loading = useSelector(state => state.addUserReducer.loading);
+  const error = useSelector(state => state.addUserReducer.error);
+
+  const handleLoading = () => {
+    if (loading) {
+      return (<Loading />);
+    }
+    if (success) {
+      return <div className='alert alert-primary mt-3'>{success}</div>
+    }
+    return error && <div className='alert alert-danger mt-3'>{error.response.data.content}</div>
+  }
+
+  useEffect(() => {
+    return () => {
+      dispatch(actAddUserReset());
+    }
+  }, [])
+
   return (
     <div className='m-auto col-5 mt-3'>
-      <h4 className='text-center'>Add User</h4>
       <form onSubmit={handleAddUser}>
         <div className="form-group">
           <span>Tài khoản</span>
@@ -54,17 +71,25 @@ export default function AddUserPage() {
           <span>Số điện thoại</span>
           <input className="form-control" name="soDt" onChange={handleOnchange} />
         </div>
-        {/* 2 tính năng này nên để trong thẻ select để người dùng chọn (nếu sử dụng API cho phép truy cập các giá trị này) */}
-        {/* <div className="form-group">
-          <span>Mã nhóm</span>
-          <input className="form-control" name="maNhom" />
+        <div className="form-group">
+          <span>Nhóm User</span>
+          <select className="custom-select" name='maLoaiNguoiDung' onChange={handleOnchange}>
+            <option value="QuanTri" className='selected'>Quản Trị</option>
+            <option value="KhachHang">Khách Hàng</option>
+          </select>
         </div>
         <div className="form-group">
-          <span>Mã loại người dùng</span>
-          <input className="form-control" name="maLoaiNguoiDung" />
-        </div> */}
-        <div className="form-group text-center">
+          <span>Mã nhóm học viên</span>
+          <select className="custom-select" name='maNhom' onChange={handleOnchange}>
+            <option value="GP01" className='selected'>GP01</option>
+            <option value="GP02">GP02</option>
+          </select>
+        </div>
+        <div className="form-group text-center mt-3">
           <button type="submit" className="btn btn-primary">Add user</button>
+        </div>
+        <div>
+          {handleLoading()}
         </div>
       </form>
     </div>

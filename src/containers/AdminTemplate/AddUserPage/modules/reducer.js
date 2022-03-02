@@ -1,8 +1,8 @@
 import * as ActionTypes from './constants';
 
 const initialState = {
-  data: null,
   loading: false,
+  data: null,
   error: null
 }
 
@@ -24,6 +24,12 @@ const addUserReducer = (state = initialState, action) => {
       state.loading = false;
       state.data = null;
       state.error = action.payload
+      return { ...state }
+    }
+    case ActionTypes.ADD_USER_RESET: {
+      state.loading = false;
+      state.data = null;
+      state.error = null;
       return { ...state }
     }
     default:
