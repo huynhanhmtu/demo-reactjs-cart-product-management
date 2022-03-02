@@ -11,6 +11,11 @@ const routesHome = [
   },
   {
     exact: false,
+    path: "/demo-reactjs-movie",
+    component: lazy(() => import("containers/HomeTemplate/HomePage"))
+  },
+  {
+    exact: false,
     path: "/about",
     component: lazy(() => import("containers/HomeTemplate/AboutPage"))
   },
