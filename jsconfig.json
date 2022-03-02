@@ -2,10 +2,18 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "components/*": ["./src/components/*"],
-      "containers/*": ["./src/containers/*"],
-      "reducers/*": ["./src/reducers/*"],
-      "routes/*": ["./src/routes/*"],
+      "components/*": [
+        "./src/components/*"
+      ],
+      "containers/*": [
+        "./src/containers/*"
+      ],
+      "reducers/*": [
+        "./src/reducers/*"
+      ],
+      "routes/*": [
+        "./src/routes/*"
+      ]
     }
   }
 }
