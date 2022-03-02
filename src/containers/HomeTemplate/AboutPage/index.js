@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import TextField from '@mui/material/TextField'
 
 export default function AboutPage() {
   return (
-    <div>
-      <div>About Page</div>
-      <div>- Some Contents</div>
+    <div className='container py-3'>
+      <h4>Demo MUI</h4>
+      <TextField id="standard-basic" label="Standard" variant="standard" />
     </div>
   )
 }

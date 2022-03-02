@@ -1,11 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { Fragment, useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import AdminSidebar from './_components/Sidebar';
 
 export default function AdminTemplate({ exact, path, component }) {
   const [flag, setFlag] = useState(true);
-  const history = useHistory()
   const transData = (data) => {
     setFlag(data);
   }

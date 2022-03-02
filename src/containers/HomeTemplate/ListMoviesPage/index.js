@@ -29,6 +29,7 @@ export default function ListMoviesPage() {
   if (loading) {
     return <Loading />
   }
+
   return (
     <div className='container'>
       <div className='row'>
