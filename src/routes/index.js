@@ -10,22 +10,22 @@ const routesHome = [
     component: lazy(() => import("containers/HomeTemplate/HomePage"))
   },
   {
-    exact: false,
+    exact: true,
     path: "/demo-reactjs-movie",
     component: lazy(() => import("containers/HomeTemplate/HomePage"))
   },
   {
-    exact: false,
+    exact: true,
     path: "/about",
     component: lazy(() => import("containers/HomeTemplate/AboutPage"))
   },
   {
-    exact: false,
+    exact: true,
     path: "/list-movies",
     component: lazy(() => import("containers/HomeTemplate/ListMoviesPage"))
   },
   {
-    exact: false,
+    exact: true,
     path: "/detail/:id",
     component: lazy(() => import("containers/HomeTemplate/DetailMoviePage"))
   },
@@ -33,12 +33,12 @@ const routesHome = [
 
 const routesAdmin = [
   {
-    exact: false,
+    exact: true,
     path: "/dashboard",
     component: lazy(() => import("containers/AdminTemplate/DashboardPage"))
   },
   {
-    exact: false,
+    exact: true,
     path: "/add-user",
     component: lazy(() => import("containers/AdminTemplate/AddUserPage"))
   },

@@ -1,17 +1,31 @@
 import './style.css';
-import React, { Fragment } from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 export default function NavbarHome() {
+  const [isLogin, setIsLogin] = useState(true);
+
+  const handleLogout = () => {
+    if (window.confirm("Really?")) {
+      localStorage.removeItem("UserInfo");
+      setIsLogin(false);
+    }
+  }
+
   const handleRenderLink = () => {
     if (localStorage.getItem("UserInfo")) {
-      return <Link className="nav-link px-1" to="/dashboard">Dashboard</Link>
+      return (
+        <>
+          <Link className="nav-link px-1" to="/dashboard">Dashboard</Link>
+          <a className="nav-link px-1" style={{ cursor: "pointer" }} onClick={handleLogout}>Logout</a>
+        </>
+      )
     }
     return (
-      <Fragment>
+      <>
         <Link className="nav-link px-1" to="/login">Login</Link>
         <Link className="nav-link px-1 disabled" to="/">Register</Link>
-      </Fragment>
+      </>
     )
   }
 
